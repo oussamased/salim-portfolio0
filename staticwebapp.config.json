@@ -1,10 +1,23 @@
 {
-  "routes": [
-    { "route": "/*", "serve": "/index.html", "statusCode": 200 }
-  ],
+  "mimeTypes": {
+    ".pdf": "application/pdf"
+  },
   "globalHeaders": {
-    "Cache-Control": "public, max-age=86400",
     "X-Content-Type-Options": "nosniff",
-    "X-Frame-Options": "SAMEORIGIN"
-  }
+    "Cache-Control": "public, max-age=86400"
+  },
+  "routes": [
+    {
+      "route": "/*.pdf",
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": "attachment; filename=Bewerbungsmappe_Salim_Ez-Zouaq.pdf"
+      }
+    },
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ]
 }
